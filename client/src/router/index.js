@@ -1,11 +1,17 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
+import DistrictSelected from "../views/DistrictSelected.vue";
 
 const routes = [
   {
     path: "/",
     name: "home",
     component: HomeView,
+  },
+  {
+    path: "/districtselected/:district",
+    name: "districtselected",
+    component: DistrictSelected,
   },
   {
     path: "/about",
