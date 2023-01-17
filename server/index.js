@@ -10,20 +10,21 @@ fs.createReadStream("data/jocs_bcn.csv")
   .on("data", (row) => {
     // do something with the row
     //console.log(row.Codi_Districte);
+   // row["Area_Joc_Id"] = row["Area_Joc_Id"].replace(/"/g, "");
     data.push(row);
   })
   .on("end", () => {
     let selectedData = _.map(_.uniqBy(data, "Adreca"), (row) =>
       _.pick(row, [
-        "Adreca",
-        "Area_Joc_Id",
+        'Area_Joc_Id',
         "Codi_Districte",
+        "Adreca",
         "Codi_Barri",
         "Longitud",
         "Latitud",
       ])
     );
-   // console.log(selectedData);
+    console.log(selectedData);
     app.get("/api/selectedData", (req, res) => {
       res.json(selectedData);
     });

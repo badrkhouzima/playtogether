@@ -8,6 +8,6 @@ const districts = [
   { name: "Horta-Guinardó", value: 7 },
   { name: "Nou Barris", value: 8 },
   { name: "Sant Andreu", value: 9 },
-  { name: "Sant Marti", value: 10 },
+  { name: "Sant Martí", value: 10 },
 ];
 export default districts;
