@@ -34,12 +34,12 @@ export default {
     },
   },
   watch: {
-    selectedDistrict(sel) {
+    selectedDistrict() {
       //let cleanValue = sel.replace(/ /g, "-");
       this.$router.push({
-        //path: `/districtselected/${sel}`,
+      //  path: `/districtselected/${cleanValue}`,
         name: "districtselected",
-        params: { district: sel},
+        params: { district: this.selectedDistrict},
       });
     },
   },

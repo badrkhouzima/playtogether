@@ -4,14 +4,14 @@
       <div class="col-lg-6">
         <div class="img-cont">
           <img alt="Vue logo" src="../assets/img/playtogetherlogo.svg" />
-          <h3 class="text-center text-lg-start">
+          <p class="text-center text-lg-start">
             PlayDate is a web app designed for parents in Barcelona. It allows
             them to easily find playgrounds in their district and schedule
             playdates with other families. This way, children can have the
             opportunity to meet and play with new friends while parents can
             enjoy the company of other adults. With PlayDate, scheduling
             playdates has never been easier
-          </h3>
+          </p>
           <DistrictMenu/>
         </div>
       </div>

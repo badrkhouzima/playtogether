@@ -1,6 +1,6 @@
 <template>
-  <div class="container d-flex justify-content-center">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container d-flex justify-content-center mt-1">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light px-4">
       <router-link to="/" class="navbar-brand">Playtogether</router-link>
       <button
         class="navbar-toggler"
@@ -36,10 +36,7 @@
     </nav>
   </div>
 </template>
-
-<script></script>
-
-<script scoped>
+<script>
 export default {
   name: "NavComp",
   components: {},
