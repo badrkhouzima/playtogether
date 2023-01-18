@@ -12,7 +12,11 @@
           ></button>
         </div>
         <div class="modal-body">
-          <p>Modal body text goes here.</p>
+          <p>Pick up a date and time.</p>
+          <MonthCalander />
+        </div>
+        <div>
+          <TimeCalander />
         </div>
         <div class="modal-footer">
           <button
@@ -30,12 +34,15 @@
 </template>
 
 <script>
+import MonthCalander from "./MonthCalander.vue";
+import TimeCalander from "./TimeCalander.vue";
 export default {
   name: "CalanderModal",
+  components: {
+    MonthCalander,
+    TimeCalander,
+  },
 };
 </script>
 
-<style scoped>
-
-
-</style>
+<style scoped></style>
