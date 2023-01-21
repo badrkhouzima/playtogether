@@ -70,7 +70,7 @@ export default {
     padding: 3px 6px;
 }
 .day:hover{
-  background-color: antiquewhite;
+  background-color: rgb(226, 216, 202);
   cursor: pointer;
 }
 </style>
