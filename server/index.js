@@ -10,13 +10,13 @@ fs.createReadStream("data/jocs_bcn.csv")
   .on("data", (row) => {
     // do something with the row
     //console.log(row.Codi_Districte);
-   // row["Area_Joc_Id"] = row["Area_Joc_Id"].replace(/"/g, "");
+    // row["Area_Joc_Id"] = row["Area_Joc_Id"].replace(/"/g, "");
     data.push(row);
   })
   .on("end", () => {
     let selectedData = _.map(_.uniqBy(data, "Adreca"), (row) =>
       _.pick(row, [
-        'Area_Joc_Id',
+        "Area_Joc_Id",
         "Codi_Districte",
         "Adreca",
         "Codi_Barri",
@@ -24,22 +24,25 @@ fs.createReadStream("data/jocs_bcn.csv")
         "Latitud",
       ])
     );
-    console.log(selectedData);
+    // console.log(selectedData);
     app.get("/api/selectedData", (req, res) => {
       res.json(selectedData);
+      res.send("welcome to my app express www");
+    });
+    app.get("/", (req, res) => {
+      //res.json(selectedData);
+      res.send("welcome to my app express 2222");
     });
   });
 
-app.listen(3000, () => {
-  console.log("Server listening on port 3000");
-  
+
+const port = process.env.PORT || 3000;
+
+app.listen(port, () => {
+  console.log(`Server listening at http://localhost:${port}`);
 });
 
 app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "http://localhost:8080");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
+  res.header("Access-Control-Allow-Origin:*");
+
 });

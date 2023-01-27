@@ -1,8 +1,12 @@
 import axios from "axios";
+axios.defaults.baseURL = "https://playgroundserverdata.azurewebsites.net/";
+
+
 export const fetchSelectedData = () => {
-    return axios
-    .get("http://localhost:3000/api/selectedData")
-    .then(response => response.data)
-    .catch(error => console.log(error))
-    
-}
+    console.log("entered axios")
+  return axios
+    .get("/api/selectedData")
+    .then((response) => response.data)
+    .catch((error) => console.log(error));
+};
+
