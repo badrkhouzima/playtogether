@@ -1,8 +1,8 @@
 <template>
   <div class="container-fluid home mt-0 pt-5 px-5">
-    <div class="row row_content">
+    <div class="row">
       <div
-        class="col-lg-6 d-flex flex-column align-items-center justify-content-between"
+        class="col-lg-6 d-flex flex-column align-items-center justify-content-between py-5"
         style="height: 440px"
       >
         <h1><span class="logo">PlayTogether</span></h1>
@@ -16,7 +16,10 @@
         </p>
         <DistrictMenu />
       </div>
-      <div class="col-lg-6 d-flex flex-column justify-content-center px-5" style="padding: 0 40px;">
+      <div
+        class="col-lg-6 d-flex flex-column justify-content-center px-5"
+        style="padding: 0 40px"
+      >
         <CustomForm />
       </div>
     </div>
@@ -34,13 +37,6 @@ export default {
     DistrictMenu,
     CustomForm,
   },
-  data() {
-    return {
-      // emailValue: "",
-      // passwordValue: "",
-      // type: "text",
-    };
-  },
 };
 </script>
 <style scoped>
@@ -55,13 +51,6 @@ h3 {
 }
 .home {
   background-color: #8bf4e9;
-  height: 100vh;
-
-  /* max-width: 895px;
-  margin-top: auto; */
-}
-.row_content {
-  height: 100vh;
 }
 .img-cont {
   display: flex;
@@ -75,10 +64,6 @@ h3 {
 @media (min-width: 992px) {
   .home {
     margin: 4em auto;
-  }
-  img {
-    margin: 0;
-    /* margin-top: 5.6em; */
   }
   h2 {
     margin: 0;

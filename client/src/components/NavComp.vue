@@ -1,6 +1,6 @@
 <template>
-  <div class="container d-flex justify-content-center mt-1">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light px-4">
+  <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg px-4 navbar-light d-flex navbar__color">
       <router-link to="/" class="navbar-brand">Playtogether</router-link>
       <button
         class="navbar-toggler"
@@ -42,3 +42,8 @@ export default {
   components: {},
 };
 </script>
+<style scoped>
+.navbar__color {
+  background-color: #d6f7f3;
+}
+</style>
