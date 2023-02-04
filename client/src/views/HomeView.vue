@@ -51,6 +51,7 @@ h3 {
 }
 .home {
   background-color: #8bf4e9;
+  padding-bottom: 10em;
 }
 .img-cont {
   display: flex;
@@ -61,9 +62,10 @@ h3 {
   margin: 1em auto 0 auto;
   max-height: 200px;
 }
+
 @media (min-width: 992px) {
   .home {
-    margin: 4em auto;
+    margin: 0 auto;
   }
   h2 {
     margin: 0;
