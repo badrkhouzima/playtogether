@@ -10,10 +10,13 @@
           v-show="ele.Codi_Districte === district"
         >
           <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">{{ ele.Adreca }}</h5>
+            <h6 class="mb-1">{{ ele.Adreca }}</h6>
             <small> {{ ele.Codi_Districte }}</small>
           </div>
-          <p class="mb-1">Share you child playtime starting from here</p>
+          <p class="my-3">
+            Boost Your Child's Brain Power with Shared Playtime - A Fun Way to
+            Enhance Cognitive Development!
+          </p>
           <small>
             <a href="" @click.prevent="goToMap(ele.Latitud, ele.Longitud)"
               >Get the direction here..</a
@@ -21,7 +24,6 @@
           </small>
           <div class="d-flex justify-content-between mt-3">
             <button
-            
               data-bs-toggle="modal"
               data-bs-target="#modal"
               class="btn btn-info mx-2"
@@ -37,7 +39,7 @@
     </div>
   </div>
 
-  <ModalApp  :mode="'parentWantSchedule'"  />
+  <ModalApp :mode="'parentWantSchedule'" />
 </template>
 <script>
 import { fetchSelectedData } from "../api/axios";
@@ -90,4 +92,10 @@ export default {
 .district_list {
   list-style-type: none;
 }
+p {
+    font-size: 1.2rem;
+    font-weight: 400;
+    max-width: 500px;
+    margin: 0 auto;
+  }
 </style>

@@ -151,8 +151,8 @@ export default {
     const { min, max } = calanderControler();
     this.min = min;
     this.max = max;
-    console.log("miniss", min)
-    console.log("maxxx", max)
+    console.log("miniss", min);
+    console.log("maxxx", max);
   },
   data() {
     return {
@@ -261,6 +261,15 @@ export default {
     };
   },
   methods: {
+    parentRegistered() {
+      this.$router.push("/registeredParentHome");
+    },
+    beforeRouteLeave(to, from, next) {
+      // Remove the modal-backdrop element
+      document.body.classList.remove("modal-open");
+      document.querySelector(".modal-backdrop").remove();
+      next();
+    },
     checkTextLength() {
       this.textLength = this.textInput.length;
       if (this.textLength > 200) {
@@ -281,6 +290,7 @@ export default {
 
       if (namesValid && dniValid && emailValid && passwordValid) {
         console.log(" you are all good");
+        this.parentRegistered();
       }
     },
   },
