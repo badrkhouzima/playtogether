@@ -20,7 +20,12 @@
             >
           </small>
           <div class="d-flex justify-content-between mt-3">
-            <button  data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-info mx-2">
+            <button
+            
+              data-bs-toggle="modal"
+              data-bs-target="#modal"
+              class="btn btn-info mx-2"
+            >
               Tell Us When You Wanna Go
             </button>
             <button @click="showSchedule" class="btn btn-info mx-2">
@@ -31,18 +36,19 @@
       </div>
     </div>
   </div>
-  <CalanderModal  />
+
+  <ModalApp  :mode="'parentWantSchedule'"  />
 </template>
 <script>
 import { fetchSelectedData } from "../api/axios";
-import CalanderModal from "../components/CalanderModal.vue"
+import ModalApp from "../components/ModalApp.vue";
+//import { ref } from "vue";
 export default {
-   components: { CalanderModal },
+  components: { ModalApp },
   name: "DistrictSelected",
   data() {
     return {
       fetchedData: [],
-     
     };
   },
   created() {
@@ -70,9 +76,14 @@ export default {
       );
     },
     showSchedule() {},
-
   },
+  // setup() {
+  //   const parentSetUpTime = ref(false)
+  //   return {
 
+  //     parentSetUpTime
+  //   }
+  // }
 };
 </script>
 <style scoped>

@@ -1,5 +1,6 @@
 import axios from "axios";
-axios.defaults.baseURL = "https://playgroundserverdata.azurewebsites.net/";
+//axios.defaults.baseURL = "https://playtogetherserver.azurewebsites.net/";
+axios.defaults.baseURL = "http://localhost:3000/";
 
 
 export const fetchSelectedData = () => {
