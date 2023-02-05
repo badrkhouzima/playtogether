@@ -134,6 +134,7 @@ import { validateEmail } from "@/validators/email-validator.js";
 import { validatePassword } from "@/validators/password-validator.js";
 import { validateBirthday } from "@/validators/birthday-validator.js";
 import { calanderControler } from "@/validators/calander-controler.js";
+import idGenerator from "@/generator/id-generator";
 
 export default {
   name: "CalanderModal",
@@ -258,17 +259,12 @@ export default {
           maxlength: "10",
         },
       ],
+      userDataValidated: {},
     };
   },
   methods: {
     parentRegistered() {
       this.$router.push("/registeredParentHome");
-    },
-    beforeRouteLeave(to, from, next) {
-      // Remove the modal-backdrop element
-      document.body.classList.remove("modal-open");
-      document.querySelector(".modal-backdrop").remove();
-      next();
     },
     checkTextLength() {
       this.textLength = this.textInput.length;
@@ -278,19 +274,39 @@ export default {
       }
     },
     submitForm() {
-      // if (!this.$refs.form.checkValidity()) {
-      //   this.$refs.form.classList.add("was-validated");
-      //   console.log("validations");
-      // }
       const namesValid = checkFormNamesEntries(this.inputs, this.$refs.form);
       const dniValid = validateDNI(this.inputs, this.$refs.form);
+      const birthdayValid = validateBirthday(this.inputs, this.$refs.form);
       const emailValid = validateEmail(this.inputs, this.$refs.form);
       const passwordValid = validatePassword(this.inputs, this.$refs.form);
-      const passwordBirthday = validateBirthday(this.inputs, this.$refs.form);
 
-      if (namesValid && dniValid && emailValid && passwordValid) {
-        console.log(" you are all good");
+      if (
+        namesValid &&
+        dniValid &&
+        emailValid &&
+        passwordValid &&
+        birthdayValid
+      ) {
+        this.userDataValidated = {
+          firstname: this.inputs[0].value,
+          lastname: this.inputs[1].value,
+          username: this.inputs[2].value,
+          dninumber: this.inputs[3].value,
+          birthday: this.inputs[4].value,
+          useremail: this.inputs[5].value,
+          userpassword: this.inputs[7].value,
+          usergenetaredid: idGenerator(),
+        };
+        // localStorage.setItem(
+        //   "userData",
+        //   JSON.stringify(this.userDataValidated)
+        // );
+        localStorage.setItem(
+          "userData",
+          JSON.stringify(this.userDataValidated)
+        );
         this.parentRegistered();
+        //this.$bvModal.hide("modal");
       }
     },
   },

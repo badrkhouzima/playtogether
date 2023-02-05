@@ -1,7 +1,6 @@
 export function validatePassword(inputs, formRefs) {
   const passwordRegex =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{6,10})/;
-  console.log("hi badr");
   const password = inputs[7].value;
   const repeatPassword = inputs[8].value;
   const isValidPassword = passwordRegex.test(password);

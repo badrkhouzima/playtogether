@@ -11,21 +11,17 @@ export function validateEmail(inputs, formRefs) {
     console.log("email nooot");
     formRefs.elements["email"].classList.remove("is-valid");
     formRefs.elements["email"].classList.add("is-invalid");
-    console.log("emmail not valid", !isValidEmail);
     return false;
   } else if (!isRepeatEmailValid) {
     console.log("repeat email nooot");
     formRefs.elements["repeatEmail"].classList.remove("is-valid");
     formRefs.elements["repeatEmail"].classList.add("is-invalid");
-    console.log("repeat emmail not valid", !isRepeatEmailValid);
     return false;
   } else if (emailValue !== repeatEmailValue) {
-    console.log("emails not match");
     formRefs.elements["email"].classList.remove("is-valid");
     formRefs.elements["email"].classList.add("is-invalid");
     formRefs.elements["repeatEmail"].classList.remove("is-valid");
     formRefs.elements["repeatEmail"].classList.add("is-invalid");
-    console.log("emails not match", emailValue, repeatEmailValue);
     return false;
   } else {
     console.log("email yes");
@@ -34,7 +30,6 @@ export function validateEmail(inputs, formRefs) {
     formRefs.elements["repeatEmail"].classList.remove("is-invalid");
     formRefs.elements["repeatEmail"].classList.add("is-valid");
     inputs[5].value = emailValue.toLowerCase();
-    console.log("here is the", isValidEmail)
     return isValidEmail;
   }
 }

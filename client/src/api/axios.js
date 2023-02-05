@@ -4,7 +4,6 @@ axios.defaults.baseURL = "https://playtogetherserver.azurewebsites.net/";
 
 
 export const fetchSelectedData = () => {
-    console.log("entered axios")
   return axios
     .get("/api/selectedData")
     .then((response) => response.data)

@@ -1,6 +1,6 @@
 <template>
   <div class="container about d-flex flex-column align-items-center px-5 ">
-    <h1>This is an about page</h1>
+    <h1>Collaborate on Building a Playground Connection Web App for Families</h1>
     <p>
       Welcome to our playground matching web app! This project is a
       collaborative effort by junior web developers to expand their skills and

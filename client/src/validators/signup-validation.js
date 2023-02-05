@@ -7,15 +7,13 @@ export function checkFormNamesEntries(inputs, formRefs) {
   };
 
   if (namesResults.firstName) {
-    console.log("firstname 100");
     formRefs.elements["firstName"].classList.remove("is-valid");
     formRefs.elements["firstName"].classList.add("is-invalid");
     isValid = false;
   } else {
-    console.log("firstname 2");
     formRefs.elements["firstName"].classList.remove("is-invalid");
     formRefs.elements["firstName"].classList.add("is-valid");
-    // inputs[0].value = inputs[0].value.toLowerCase();
+    inputs[0].value = inputs[0].value.toLowerCase();
   }
 
   if (namesResults.lastName) {

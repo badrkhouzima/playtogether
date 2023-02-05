@@ -56,16 +56,13 @@ export default {
   created() {
     fetchSelectedData().then((data) => {
       this.fetchedData = data;
-      console.log("check here =>", this.fetchedData);
+      // console.log("check here =>", this.fetchedData);
     });
   },
   computed: {
     district() {
       return this.$route.params.district;
     },
-    // mapLink() {
-    //   return `https://www.google.com/maps?q=${this.lat},${this.lng}`;
-    // },
   },
   methods: {
     goToMap(lat, lng) {
@@ -79,13 +76,6 @@ export default {
     },
     showSchedule() {},
   },
-  // setup() {
-  //   const parentSetUpTime = ref(false)
-  //   return {
-
-  //     parentSetUpTime
-  //   }
-  // }
 };
 </script>
 <style scoped>
@@ -93,9 +83,9 @@ export default {
   list-style-type: none;
 }
 p {
-    font-size: 1.2rem;
-    font-weight: 400;
-    max-width: 500px;
-    margin: 0 auto;
-  }
+  font-size: 1.2rem;
+  font-weight: 400;
+  max-width: 500px;
+  margin: 0 auto;
+}
 </style>
