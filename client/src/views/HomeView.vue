@@ -40,6 +40,9 @@ export default {
 };
 </script>
 <style scoped>
+p{
+  font-weight: bold;
+}
 h3 {
   max-width: 470px;
   margin: auto;

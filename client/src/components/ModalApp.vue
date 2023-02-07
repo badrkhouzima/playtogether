@@ -1,8 +1,8 @@
 <template>
   <div id="modal" class="modal" tabindex="-1">
     <template v-if="mode === 'parentWantSchedule'">
-      <div class="modal-dialog">
-        <div class="modal-content">
+      <div class="modal-dialog d-flex justify-content-center">
+        <div class="modal-content" style="width: 83%">
           <div class="modal-header">
             <h5 class="modal-title mt-4">
               Tell parents when you are heading to the playground
@@ -32,7 +32,7 @@
               placeholder="This is optional..."
               @input="checkTextLength"
               rows="4"
-              cols="40"
+              :cols="columnSize"
             ></textarea>
             <p v-if="textLength > 200">{{ textLength }}/200 characters</p>
           </div>
@@ -50,8 +50,8 @@
       </div>
     </template>
     <template v-if="mode === 'signup'">
-      <div class="modal-dialog sign-up">
-        <div class="modal-content">
+      <div class="modal-dialog d-flex justify-content-center sign-up">
+        <div class="modal-content" style="width: 83%">
           <div class="modal-header">
             <h5 class="modal-title flex-grow-1 text-center">Sign Up</h5>
             <button
@@ -62,7 +62,7 @@
             ></button>
           </div>
 
-          <div class="modal-body-signup">
+          <div class="modal-body-signup" style="width: 90%">
             <form
               class="needs-validation"
               novalidate
@@ -146,6 +146,11 @@ export default {
     mode: {
       type: String,
       required: true,
+    },
+  },
+  computed: {
+    columnSize() {
+      return window.innerWidth < 768 ? "33" : "44";
     },
   },
   mounted() {
