@@ -4,27 +4,32 @@
       <table>
         <thead>
           <tr>
-            <th class="week__day"  v-for="day in days" :key="day">{{ day }}</th>
+            <th class="week__day" v-for="day in days" :key="day">{{ day }}</th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="week in weeks" :key="week">
-            <td class="day" v-for="day in week" :key="day">{{ day.format("D") }}</td>
+            <td
+              class="day"
+              v-for="day in week"
+              :key="day"
+              @click="applyOnClick(day)"
+            >
+              {{ day.format("D") }}
+            </td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
-  <div>
-
-  </div>
+  <div></div>
 </template>
 
 <script>
 import moment from "moment";
 
 export default {
-    name: "MonthCalander",
+  name: "MonthCalander",
   data() {
     return {
       date: moment(),
@@ -58,18 +63,21 @@ export default {
         }
       }
     },
+    applyOnClick(day) {
+      // Your code here
+    },
   },
 };
 </script>
 
 <style scoped>
-.week__day{
-    padding: 3px 6px;
+.week__day {
+  padding: 3px 6px;
 }
-.day{
-    padding: 3px 6px;
+.day {
+  padding: 3px 6px;
 }
-.day:hover{
+.day:hover {
   background-color: rgb(226, 216, 202);
   cursor: pointer;
 }
