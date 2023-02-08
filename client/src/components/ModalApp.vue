@@ -54,6 +54,8 @@
         <div class="modal-content" style="width: 83%">
           <div class="modal-header">
             <h5 class="modal-title flex-grow-1 text-center">Sign Up</h5>
+            <input type="button" value="dummy data" @click="fillForm" />
+            <!-- <button @click="fillForm">Fill Form</button> -->
             <button
               type="button"
               class="btn-close"
@@ -70,7 +72,7 @@
               @submit.prevent="submitForm"
             >
               <div class="d-flex flex-column form-group">
-                <div class="d-flex" v-if="inputs.length > 1">
+                <div class="d-flex flex-grow-0.4" v-if="inputs.length > 1">
                   <input
                     v-for="(input, i) in inputs.slice(0, 2)"
                     :key="i"
@@ -87,24 +89,39 @@
                     :maxlength="input.maxlength"
                   />
                 </div>
-
-                <input
+                <div
                   v-for="(input, i) in inputs.slice(2)"
-                  :key="i + inputs.slice(0, 2).length"
-                  v-model="input.value"
-                  :type="input.type"
-                  :placeholder="input.placeholder"
-                  :id="input.id"
-                  :name="input.name"
-                  :class="input.class"
-                  :required="input.required"
-                  :size="input.size"
-                  :minlength="input.minlength"
-                  :maxlength="input.maxlength"
-                  :min="input.min"
-                  :max="input.max"
-                />
+                  class="d-flex align-items-center input__show-password"
+                >
+                  <input
+                    :key="i + inputs.slice(0, 2).length"
+                    v-model="input.value"
+                    :type="input.type"
+                    :placeholder="input.placeholder"
+                    :id="input.id"
+                    :name="input.name"
+                    :class="input.class"
+                    :required="input.required"
+                    :size="input.size"
+                    :minlength="input.minlength"
+                    :maxlength="input.maxlength"
+                    :min="input.min"
+                    :max="input.max"
+                  />
 
+                  <span
+                    v-if="!input.showIconPassword"
+                    v-html="input.hidePasswordIcon"
+                    @click="toggleShowIcon(i)"
+                    style="cursor: pointer"
+                  ></span>
+                  <span
+                    v-if="input.showIconPassword"
+                    v-html="input.showPasswordIcon"
+                    @click="toggleShowIcon(i)"
+                    style="cursor: pointer"
+                  ></span>
+                </div>
                 <!-- <div class="valid-feedback">Valid.</div> -->
               </div>
               <div class="modal-footer justify-content-center">
@@ -164,6 +181,17 @@ export default {
     return {
       textInput: "",
       textLength: 0,
+      dummyFormData: {
+        firstname: "bard",
+        lastname: "zima",
+        username: "bazima",
+        identitynum: "25532868Q",
+        birthday: "2018-09-09",
+        email: "bard@gmail.com",
+        repeatemail: "bard@gmail.com",
+        password: "@01BAzima",
+        repeatpassword: "@01BAzima",
+      },
       inputs: [
         {
           value: "",
@@ -251,6 +279,11 @@ export default {
           required: "true",
           minlength: "6",
           maxlength: "10",
+          showIconPassword: false,
+          showPasswordIcon:
+            '<span class="material-icons-sharp">visibility</span>',
+          hidePasswordIcon:
+            '<span class="material-icons-sharp">visibility_off</span>',
         },
         {
           value: "",
@@ -262,12 +295,28 @@ export default {
           required: "true",
           minlength: "6",
           maxlength: "10",
+          showIconRepeatedPassword: false,
+          showPasswordIcon:
+            '<span class="material-icons-sharp">visibility</span>',
+          hidePasswordIcon:
+            '<span class="material-icons-sharp">visibility_off</span>',
         },
       ],
       userDataValidated: {},
     };
   },
   methods: {
+    fillForm() {
+      this.inputs[0].value = this.dummyFormData.firstname;
+      this.inputs[1].value = this.dummyFormData.lastname;
+      this.inputs[2].value = this.dummyFormData.username;
+      this.inputs[3].value = this.dummyFormData.identitynum;
+      this.inputs[4].value = this.dummyFormData.birthday;
+      this.inputs[5].value = this.dummyFormData.email;
+      this.inputs[6].value = this.dummyFormData.repeatemail;
+      this.inputs[7].value = this.dummyFormData.password;
+      this.inputs[8].value = this.dummyFormData.repeatpassword;
+    },
     parentRegistered() {
       this.$router.push("/registeredParentHome");
     },
@@ -277,6 +326,13 @@ export default {
         this.textInput = this.textInput.slice(0, 200);
         this.textLength = 200;
       }
+    },
+    toggleShowIcon(index) {
+      this.inputs[index + 2].showIconPassword =
+        !this.inputs[index + 2].showIconPassword;
+      this.inputs[index + 2].showIconPassword
+        ? (this.inputs[index + 2].type = "text")
+        : (this.inputs[index + 2].type = "password");
     },
     submitForm() {
       const namesValid = checkFormNamesEntries(this.inputs, this.$refs.form);

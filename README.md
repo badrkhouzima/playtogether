@@ -14,3 +14,7 @@ To clean and pick up the columns needed from open data csv file:
 - material icons for icons if needed.
 - JetBrain font, its files are embeded inside the project; bold, regular, light.
 - moment.js to generate calander.
+
+## Where the app is hosted?
+- the backend of the app is hosted in azure app services.
+- the distribution frontend directory is hosted in azure storage.

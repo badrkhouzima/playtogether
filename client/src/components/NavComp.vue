@@ -26,8 +26,9 @@
             >
           </li>
           <!-- <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
-        </li>
+            <a class="nav-link" href="#"><span class="material-icons-outlined">visibility</span></a>
+          </li> -->
+          <!--
         <li class="nav-item">
           <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
         </li> -->
